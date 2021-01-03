@@ -6,13 +6,12 @@ import Slider from "./Slider";
 import phoneData from "../../data/phoneData.json";
 
 export default class BTComponentReact extends Component {
-
   render() {
     return (
       <div className="bg-dark">
         <Header />
         <Slider />
-        <ProductList mangPhone={phoneData} />
+        <ProductList phone={phoneData} />
         <Footer />
       </div>
     );

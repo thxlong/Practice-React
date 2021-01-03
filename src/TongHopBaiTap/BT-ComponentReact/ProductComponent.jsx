@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 export default class ProductComponent extends Component {
   render() {
-    const { hinhAnh, tenSP, giaBan } = this.props.sanPham;
+    const { hinhAnh, tenSP, giaBan } = this.props.sp;
+
     return (
       <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
         <div className="container text-dark">
@@ -15,7 +16,7 @@ export default class ProductComponent extends Component {
             />
             <div className="card-body text-center">
               <h4 className="card-title text-center">{tenSP}</h4>
-              <p className="card-text">{giaBan}</p>
+              <p className="card-text'">{giaBan}</p>
               <button className="btn btn-primary">Detail</button>
               <a className="btn btn-danger">Cart</a>
             </div>
