@@ -14,10 +14,16 @@ export default class BaiTapTruyenFunction extends Component {
     return this.state.mangSanPham.map((sp, index) => {
       return (
         <div className="col-4" key={index}>
-          <DanhSachSanPham mangSanPhamInput={sp} />
+          <DanhSachSanPham hanlderDetail={this.hanlderDetail} mangSanPhamInput={sp} />
         </div>
       );
     });
+  };
+
+  hanlderDetail = (sanPham) => {
+    console.log(sanPham);
+    //Thay đổi giá trị phone
+    this.setState({});
   };
 
   render() {
