@@ -1,90 +1,100 @@
 import React, { Component } from "react";
-import phoneData from "../../../data/phoneData.json";
-import SanPham from "./SanPham";
+import DanhSachSanPham from "./DanhSachSanPham";
+import dataPhone from "../../../data/phoneData.json";
 
-export default class DanhSachSanPham extends Component {
+export default class BaiTapTruyenFunction extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sanPhamChiTiet: phoneData[0],
+      mangSanPham: dataPhone,
+      currentSP: dataPhone[0],
     };
   }
 
-  styleImg = { width: 300, height: 300 };
   renderSanPham = () => {
-    // Lấy props mảng sản phẩm từ component ngoài vào
-    return phoneData.map((dt, index) => {
+    return this.state.mangSanPham.map((sp, index) => {
       return (
         <div className="col-4" key={index}>
-          <SanPham dt={dt} xemChiTietButton={this.xemChiTietButton} />
+          <DanhSachSanPham
+            hanlderDetail={this.hanlderDetail}
+            mangSanPhamInput={sp}
+          />
         </div>
       );
     });
   };
 
-  // Dữ liệu cần lấy ở component DanhSachSanPham => đặt callback function tại danhSachSanPham
-  xemChiTietButton = (sanPhamClicked) => {
-    // console.log(sanPhamClicked);
-    // Thay đổi giá trị phone xemChiTiet
+  hanlderDetail = (maSP) => {
+    const hungNoLai = this.state.mangSanPham.find((x) => x.maSP === maSP);
+
     this.setState({
-      sanPhamChiTiet: sanPhamClicked,
+      currentSP: hungNoLai,
     });
   };
   render() {
-    let { sanPhamChiTiet } = this.state;
+    const {
+      maSP,
+      tenSP,
+      hinhAnh,
+      giaBan,
+      manHinh,
+      heDieuHanh,
+      cameraTruoc,
+      cameraSau,
+      ram,
+      rom,
+    } = this.state.currentSP;
     return (
       <div className="container">
         <div className="row">{this.renderSanPham()}</div>
 
         <div className="row">
           <div className="col-4">
-            <h3>{sanPhamChiTiet.tenSP}</h3>
-
             <img
-              src={sanPhamChiTiet.hinhAnh}
-              alt={sanPhamChiTiet.hinhAnh}
-              style={this.styleImg}
+              className="mt-4"
+              src={hinhAnh}
+              alt={hinhAnh}
+              style={{ width: 350, height: 400 }}
             />
           </div>
-
           <div className="col-8">
             <table className="table">
               <thead>
                 <tr>
                   <th>Mã sản phẩm</th>
-                  <th>{sanPhamChiTiet.maSP}</th>
+                  <th>{maSP}</th>
                 </tr>
                 <tr>
                   <th>Tên sản phẩm</th>
-                  <th>{sanPhamChiTiet.tenSP}</th>
+                  <th>{tenSP}</th>
                 </tr>
                 <tr>
                   <th>Màn hình</th>
-                  <th>{sanPhamChiTiet.manHinh}</th>
+                  <th>{manHinh}</th>
                 </tr>
                 <tr>
                   <th>Hệ điều hành</th>
-                  <th>{sanPhamChiTiet.heDieuHanh}</th>
+                  <th>{heDieuHanh}</th>
                 </tr>
                 <tr>
                   <th>Camera trước</th>
-                  <th>{sanPhamChiTiet.cameraTruoc}</th>
+                  <th>{cameraTruoc}</th>
                 </tr>
                 <tr>
                   <th>Camera sau</th>
-                  <th>{sanPhamChiTiet.cameraSau}</th>
+                  <th>{cameraSau}</th>
                 </tr>
                 <tr>
                   <th>ram</th>
-                  <th>{sanPhamChiTiet.ram}</th>
+                  <th>{ram}</th>
                 </tr>
                 <tr>
                   <th>rom</th>
-                  <th>{sanPhamChiTiet.rom}</th>
+                  <th>{rom}</th>
                 </tr>
                 <tr>
                   <th>giaBan</th>
-                  <th>{sanPhamChiTiet.giaBan.toLocaleString()}</th>
+                  <th>{giaBan.toLocaleString()}</th>
                 </tr>
               </thead>
             </table>
