@@ -7,6 +7,7 @@ export default class BaiTapTruyenFunction extends Component {
     super(props);
     this.state = {
       mangSanPham: dataPhone,
+      currentSP: dataPhone[0],
     };
   }
 
@@ -14,18 +15,23 @@ export default class BaiTapTruyenFunction extends Component {
     return this.state.mangSanPham.map((sp, index) => {
       return (
         <div className="col-4" key={index}>
-          <DanhSachSanPham hanlderDetail={this.hanlderDetail} mangSanPhamInput={sp} />
+          <DanhSachSanPham
+            hanlderDetail={this.hanlderDetail}
+            mangSanPhamInput={sp}
+          />
         </div>
       );
     });
   };
 
-  hanlderDetail = (sanPham) => {
-    console.log(sanPham);
-    //Thay đổi giá trị phone
-    this.setState({});
-  };
+  hanlderDetail = (maSP) => {
 
+    const hungNoLai = this.state.mangSanPham.find(x => x.maSP == maSP);
+
+    this.setState({
+      currentSP: hungNoLai,
+    });
+  };
   render() {
     const {
       maSP,
@@ -38,7 +44,7 @@ export default class BaiTapTruyenFunction extends Component {
       cameraSau,
       ram,
       rom,
-    } = this.state.mangSanPham[0];
+    } = this.state.currentSP;
     return (
       <div className="container">
         <div className="row">{this.renderSanPham()}</div>

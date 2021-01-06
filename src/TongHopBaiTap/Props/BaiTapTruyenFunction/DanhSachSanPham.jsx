@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 
 export default class DanhSachSanPham extends Component {
-  hanlderDetail = (sanPham) => {
-    console.log(sanPham);
-    //Thay đổi giá trị phone
-    this.setState({});
-  };
   render() {
     let { mangSanPhamInput } = this.props;
-    let { tenSP, hinhAnh, giaBan } = mangSanPhamInput;
+    let { tenSP, hinhAnh, giaBan, maSP } = mangSanPhamInput;
 
     return (
       <div className="card text-center">
@@ -25,7 +20,7 @@ export default class DanhSachSanPham extends Component {
           <button
             className="btn btn-info ml-3"
             onClick={() => {
-              this.hanlderDetail(mangSanPhamInput);
+              this.props.hanlderDetail(maSP);
             }}
           >
             Xem chi tiết
