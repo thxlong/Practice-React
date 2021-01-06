@@ -1,5 +1,5 @@
 import "./App.css";
-import BaiTapTruyenFunction from "./TongHopBaiTap/Props/BaiTapTruyenFunction/BaiTapTruyenFunction";
+import BaiTapTruyenFunction from "./TongHopBaiTap/Props/BaiTapTruyenCallBack_PracticeAgain/BaiTapTruyenFunction";
 // import DemoHookUseState from "./TongHopBaiTap/Hooks/DemoHookUseState";
 // import DemoPropsOther from "./TongHopBaiTap/Props/DemoProps_Others/DemoPropsOther";
 // import DemoProps from "./TongHopBaiTap/Props/DemoProps_Others/DemoProps_Other";
