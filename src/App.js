@@ -1,5 +1,5 @@
 import "./App.css";
-import BaiTapTruyenFunction from "./TongHopBaiTap/Props/BaiTapTruyenCallBack_PracticeAgain/BaiTapTruyenFunction";
+// import BaiTapTruyenFunction from "./TongHopBaiTap/Props/BaiTapTruyenCallBack_PracticeAgain/BaiTapTruyenFunction";
 // import DemoHookUseState from "./TongHopBaiTap/Hooks/DemoHookUseState";
 // import DemoPropsOther from "./TongHopBaiTap/Props/DemoProps_Others/DemoPropsOther";
 // import DemoProps from "./TongHopBaiTap/Props/DemoProps_Others/DemoProps_Other";
@@ -11,12 +11,12 @@ import BaiTapTruyenFunction from "./TongHopBaiTap/Props/BaiTapTruyenCallBack_Pra
 // import Event from "./TongHopBaiTap/Closure/Event";
 // import SinhVien from "./TongHopBaiTap/DataBinding/SinhVien";
 // import DemoVongLapBanHang from "./TongHopBaiTap/CauTrucLap/DemoVongLapBanHang";
-// import BTComponentReact from "./TongHopBaiTap/BT-ComponentReact/BTComponentReact";
+import BTComponentReact from "./TongHopBaiTap/BT-ComponentReact/BTComponentReact";
 
 function App() {
   return (
     <div className="App">
-      {/* <BTComponentReact /> */}
+      <BTComponentReact />
       {/* <SinhVien /> */}
       {/* <Event /> */}
       {/* <DemoIf /> */}
@@ -29,7 +29,7 @@ function App() {
       <DemoProps title={"Cybersoft 3"} /> */}
       {/* <DemoPropsOther /> */}
       {/* <DemoHookUseState /> */}
-      <BaiTapTruyenFunction />
+      {/* <BaiTapTruyenFunction /> */}
     </div>
   );
 }

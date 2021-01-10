@@ -6,7 +6,7 @@ export default class ProductList extends Component {
     return this.props.phone.map((sp, index) => {
       return (
         <div key={index} className="col-4">
-          <ProductComponent sp={sp} />
+          <ProductComponent sanPham={sp} xemChiTiet={this.props.xemChiTiet} />
         </div>
       );
     });

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 export default class ProductComponent extends Component {
   render() {
-    const { hinhAnh, tenSP, giaBan } = this.props.sp;
+    let { sanPham, xemChiTiet } = this.props;
+    let { hinhAnh, tenSP, giaBan } = this.props.sanPham;
 
     return (
       <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
@@ -17,8 +18,19 @@ export default class ProductComponent extends Component {
             <div className="card-body text-center">
               <h4 className="card-title text-center">{tenSP}</h4>
               <p className="card-text'">{giaBan}</p>
-              <button className="btn btn-primary">Detail</button>
-              <a className="btn btn-danger">Cart</a>
+              <button
+                className="btn btn-primary"
+                data-toggle="modal"
+                data-target="#modelId"
+                onClick={() => {
+                  xemChiTiet(sanPham);
+                }}
+              >
+                Detail
+              </button>
+              <a href="/#" className="btn btn-danger">
+                Cart
+              </a>
             </div>
           </div>
         </div>
