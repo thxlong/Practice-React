@@ -16,11 +16,16 @@ export default class SanPham extends Component {
         <div className="card-body">
           <h4 className="card-title">{dt.tenSP}</h4>
           <p className="card-text">{dt.giaBan}</p>
+
           <button
             className="btn btn-success"
+            style={{ width: 130 }}
             onClick={() => this.props.xemChiTietButton(dt)}
           >
             Xem chi tiết
+          </button>
+          <button className="btn btn-warning ml-2" style={{ width: 130 }}>
+            Thêm
           </button>
         </div>
       </div>
