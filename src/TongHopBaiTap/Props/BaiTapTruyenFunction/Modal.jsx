@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class Modal extends Component {
   render() {
-    const { mangDataPhone } = this.props;
+    const { mangDataPhone } = this.props; // lấy dữ liệu từ bài tập giỏ hàng 
 
     const renderGH = () => {
       return mangDataPhone.map((spGH, index) => {

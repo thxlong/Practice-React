@@ -10,7 +10,19 @@ export default class BaiTapTruyenFunction extends Component {
       mangDataPhone: dataPhone,
     };
   }
+
+  // Lấy dữ liệu tại componentBaiTapTruyenFunction
+  themGioHang = (sanPhamChon) => {
+    console.log(sanPhamChon);
+    this.setState({
+      sanPhamChiTiet: [...this.state.sanPhamChiTiet, sanPhamChon],
+    });
+  };
+
   render() {
+    let tongSoLuong = this.state.mangDataPhone.reduce((tongSL, spGH, index) => {
+      return (tongSL += spGH.soLuong);
+    }, 0);
     return (
       <div className="container">
         <div className="text-center">
@@ -24,11 +36,14 @@ export default class BaiTapTruyenFunction extends Component {
             data-toggle="modal"
             data-target="#modelId"
           >
-            Giỏ hàng (0)
+            Giỏ hàng ({tongSoLuong})
           </span>
         </div>
 
-        <DanhSachSanPham />
+        <DanhSachSanPham
+          themGioHang={this.themGioHang}
+          mangDataPhone={this.state.mangDataPhone}
+        />
         <Modal mangDataPhone={this.state.mangDataPhone} />
       </div>
     );

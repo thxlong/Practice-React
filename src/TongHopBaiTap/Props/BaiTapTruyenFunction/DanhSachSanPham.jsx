@@ -1,40 +1,48 @@
 import React, { Component } from "react";
-import phoneData from "../../../data/phoneData.json";
 import SanPham from "./SanPham";
+import phoneData from "../../../data/phoneData.json";
 
 export default class DanhSachSanPham extends Component {
+  styleImg = { width: 300, height: 300 };
+
   constructor(props) {
     super(props);
     this.state = {
-      sanPhamChiTiet: phoneData[0],
+      sanPhamChiTiet: phoneData,
     };
   }
 
-  styleImg = { width: 300, height: 300 };
-  renderSanPham = () => {
-    // Lấy props mảng sản phẩm từ component ngoài vào
-    return phoneData.map((dt, index) => {
-      return (
-        <div className="col-4" key={index}>
-          <SanPham dt={dt} xemChiTietButton={this.xemChiTietButton} />
-        </div>
-      );
-    });
-  };
-
   // Dữ liệu cần lấy ở component DanhSachSanPham => đặt callback function tại danhSachSanPham
   xemChiTietButton = (sanPhamClicked) => {
-    // console.log(sanPhamClicked);
+    console.log(sanPhamClicked);
     // Thay đổi giá trị phone xemChiTiet
     this.setState({
       sanPhamChiTiet: sanPhamClicked,
     });
   };
+
   render() {
+    let { mangDataPhone, themGioHang } = this.props;
     let { sanPhamChiTiet } = this.state;
+
+    const renderSanPham = () => {
+      // Lấy props mảng sản phẩm từ component ngoài vào
+      return mangDataPhone.map((dt, index) => {
+        return (
+          <div className="col-4" key={index}>
+            <SanPham
+              themGioHang={themGioHang}
+              dt={dt}
+              xemChiTietButton={this.xemChiTietButton}
+            />
+          </div>
+        );
+      });
+    };
+
     return (
       <div className="container">
-        <div className="row">{this.renderSanPham()}</div>
+        <div className="row">{renderSanPham()}</div>
 
         <div className="row">
           <div className="col-4">
@@ -75,16 +83,16 @@ export default class DanhSachSanPham extends Component {
                   <th>{sanPhamChiTiet.cameraSau}</th>
                 </tr>
                 <tr>
-                  <th>ram</th>
+                  <th>Ram</th>
                   <th>{sanPhamChiTiet.ram}</th>
                 </tr>
                 <tr>
-                  <th>rom</th>
+                  <th>Rom</th>
                   <th>{sanPhamChiTiet.rom}</th>
                 </tr>
                 <tr>
-                  <th>giaBan</th>
-                  <th>{sanPhamChiTiet.giaBan.toLocaleString()}</th>
+                  <th>Giá bán</th>
+                  <th>{sanPhamChiTiet.giaBan}</th>
                 </tr>
               </thead>
             </table>

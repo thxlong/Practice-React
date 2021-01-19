@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class SanPham extends Component {
   styleImg = { width: 300, height: 300 };
   render() {
-    let { dt } = this.props;
+    let { dt, themGioHang } = this.props;
 
     return (
       <div className="card">
@@ -24,7 +24,11 @@ export default class SanPham extends Component {
           >
             Xem chi tiết
           </button>
-          <button className="btn btn-warning ml-2" style={{ width: 130 }}>
+          <button
+            onClick={() => themGioHang(dt)}
+            className="btn btn-warning ml-2"
+            style={{ width: 130 }}
+          >
             Thêm
           </button>
         </div>

@@ -30,6 +30,7 @@ function App() {
       <DemoProps title={"Cybersoft 3"} /> */}
       {/* <DemoPropsOther /> */}
       {/* <DemoHookUseState /> */}
+      {/* <BaiTapTruyenFunction /> */}
       <BaiTapTruyenFunction />
     </div>
   );

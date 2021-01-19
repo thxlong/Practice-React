@@ -9,7 +9,6 @@ export default class DanhSachSanPham extends Component {
     super(props);
     this.state = {
       sanPhamChiTiet: phoneData[0],
-      currentSP: phoneData,
     };
   }
 
